@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us | Computer Engineering, ABU</title>
+<meta name="description" content="Contact the Department of Computer Engineering, Ahmadu Bello University." />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <span>Faculty of Engineering, Ahmadu Bello University, Zaria</span>
+    <span><a href="mailto:computereng@abu.edu.ng">computereng@abu.edu.ng</a></span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/images/logo.png" alt="Department of Computer Engineering, ABU logo" class="brand-mark" />
+      <span class="brand-text">
+        <h1 style="color:#fff;font-size:1rem;">Dept. of Computer Engineering</h1>
+        <p>Ahmadu Bello University, Zaria</p>
+      </span>
+    </a>
+
+    <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="staff.html">Staff</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="news.html">News &amp; Events</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding:50px 0;">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow" style="color:var(--gold);">Get In Touch</p>
+      <h1>Contact Us</h1>
+      <p class="lede">
+        Reach the Department of Computer Engineering with questions about
+        academics, admissions, or general inquiries.
+      </p>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="grid-2" style="align-items:start;">
+    <div>
+      <h2>Department Office</h2>
+      <article class="card" style="margin-bottom:18px;">
+        <h3>Address</h3>
+        <p>Engineering Phase III Complex<br>
+           Department of Computer Engineering<br>
+           Faculty of Engineering, Ahmadu Bello University<br>
+           Samaru Main Campus, Zaria, Kaduna State, Nigeria</p>
+      </article>
+      <article class="card" style="margin-bottom:18px;">
+        <h3>Email &amp; Phone</h3>
+        <p>
+          <a href="mailto:computereng@abu.edu.ng">computereng@abu.edu.ng</a><br>
+          <span style="font-size:.82rem;">For Faculty-level inquiries: <a href="mailto:engg@abu.edu.ng">engg@abu.edu.ng</a></span>
+        </p>
+      </article>
+      <article class="card">
+        <h3>Office Hours</h3>
+        <p>Monday – Friday: 8:00am – 4:00pm (WAT)<br>Closed on public holidays and during examination periods.</p>
+      </article>
+    </div>
+
+    <div class="card">
+      <h2>Send a Message</h2>
+      <!--
+        No build-step required: standard HTML form posting to a static
+        form backend (Formspree). Replace REPLACE_WITH_YOUR_FORM_ID with
+        the department's real Formspree endpoint before deployment.
+      -->
+      <form action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
+        <div class="form-field">
+          <label for="cname">Full Name</label>
+          <input type="text" id="cname" name="name" required />
+        </div>
+        <div class="form-field">
+          <label for="cemail">Email Address</label>
+          <input type="email" id="cemail" name="email" required />
+        </div>
+        <div class="form-field">
+          <label for="csubject">Subject</label>
+          <select id="csubject" name="subject" required>
+            <option value="">Select a topic</option>
+            <option value="Admissions Inquiry">Admissions Inquiry</option>
+            <option value="Academic Programs">Academic Programs</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="cmsg">Message</label>
+          <textarea id="cmsg" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<section class="band">
+  <div style="max-width:var(--maxw);margin:0 auto;padding:0 20px 50px;">
+    <h2>Find Us</h2>
+    <div class="card">
+      <iframe
+        title="Map location of the Department of Computer Engineering, Ahmadu Bello University, Zaria"
+        src="https://www.google.com/maps?q=Ahmadu+Bello+University+Zaria&output=embed"
+        width="100%" height="360" style="border:0;border-radius:8px;"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h4>Department of Computer Engineering</h4>
+      <p>Faculty of Engineering, Ahmadu Bello University, Zaria, Kaduna State, Nigeria.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="about.html">About the Department</a></li>
+        <li><a href="programs.html">Academic Programs</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Community</h4>
+      <ul>
+        <li><a href="staff.html">Staff Directory</a></li>
+        <li><a href="students.html">Student Directory</a></li>
+        <li><a href="news.html">News &amp; Events</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>computereng@abu.edu.ng</li>
+        <li>Zaria, Kaduna State</li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-bottom">&copy; 2026 Department of Computer Engineering, Ahmadu Bello University. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

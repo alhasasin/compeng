@@ -1,0 +1,214 @@
+/* =========================================================
+   assets/css/style.css
+   Department of Computer Engineering, Ahmadu Bello University
+   Pure CSS3 — Flexbox + Grid, mobile-first responsive design
+   ========================================================= */
+
+:root{
+  --navy:#0d1b3e;
+  --navy-deep:#081228;
+  --blue:#1e4fd8;
+  --blue-light:#4f7fff;
+  --gold:#d4a017;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#1c2536;
+  --muted:#5c6a85;
+  --border:#e1e6f0;
+  --radius:10px;
+  --maxw:1160px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+table{border-collapse:collapse;width:100%;}
+
+/* ===================== Top bar ===================== */
+.top-bar{
+  background:var(--navy-deep);color:#cdd6ee;
+  font-size:.82rem;
+}
+.top-bar-inner{
+  max-width:var(--maxw);margin:0 auto;padding:6px 20px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;
+}
+.top-bar a{color:#cdd6ee;}
+.top-bar a:hover{color:var(--gold);}
+
+/* ===================== Header / Nav ===================== */
+.site-header{
+  background:var(--navy);
+  position:sticky;top:0;z-index:100;
+  border-bottom:3px solid var(--gold);
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:relative;
+}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;}
+.brand-mark{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--gold);color:var(--navy-deep);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.95rem;flex-shrink:0;
+  object-fit:cover;
+}
+.brand-text h1{font-size:1rem;font-weight:700;line-height:1.2;}
+.brand-text p{font-size:.75rem;color:#a8b4d6;}
+
+.nav-toggle-input{display:none;}
+.hamburger{
+  display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;
+}
+.hamburger span{width:24px;height:2px;background:#fff;border-radius:2px;}
+
+.site-nav ul{display:flex;gap:2px;flex-wrap:wrap;}
+.site-nav a{
+  display:block;padding:10px 13px;border-radius:6px;
+  font-size:.88rem;color:#dbe2f5;font-weight:600;
+  transition:.2s;
+}
+.site-nav a:hover,.site-nav a:focus,
+.site-nav a[aria-current="page"]{
+  color:var(--navy-deep);background:var(--gold);outline:none;
+}
+
+@media (max-width:960px){
+  .hamburger{display:flex;}
+  .site-nav{
+    display:block;position:absolute;top:100%;left:0;right:0;
+    background:var(--navy);border-top:1px solid rgba(255,255,255,.1);
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+  }
+  .site-nav ul{flex-direction:column;padding:6px;}
+  .nav-toggle-input:checked ~ .header-inner .site-nav{max-height:600px;}
+}
+
+/* ===================== Layout helpers ===================== */
+main{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+section{padding:56px 0;}
+.eyebrow{
+  color:var(--blue);font-size:.78rem;letter-spacing:2px;
+  text-transform:uppercase;font-weight:700;margin-bottom:10px;
+}
+h1{font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:800;line-height:1.2;color:#fff;}
+h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;margin-bottom:20px;color:var(--navy);}
+h3{font-size:1.05rem;font-weight:700;margin-bottom:6px;color:var(--navy);}
+p{color:var(--muted);}
+.lede{font-size:1.02rem;margin-top:14px;color:#dbe2f5;}
+
+/* ===================== Buttons ===================== */
+.btn{
+  display:inline-block;padding:11px 24px;border-radius:6px;
+  font-weight:700;font-size:.9rem;transition:.2s;border:2px solid transparent;
+}
+.btn-primary{background:var(--gold);color:var(--navy-deep);}
+.btn-primary:hover,.btn-primary:focus{background:#c29112;}
+.btn-outline{border-color:#fff;color:#fff;}
+.btn-outline:hover,.btn-outline:focus{background:#fff;color:var(--navy);}
+.btn-outline-navy{border-color:var(--navy);color:var(--navy);}
+.btn-outline-navy:hover,.btn-outline-navy:focus{background:var(--navy);color:#fff;}
+
+/* ===================== Hero (Home) ===================== */
+.hero{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+  padding:70px 0;
+}
+.hero-inner{max-width:var(--maxw);margin:0 auto;padding:0 20px;
+  display:flex;flex-wrap:wrap;gap:40px;align-items:center;}
+.hero-text{flex:1 1 460px;}
+.hero-actions{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;}
+.hero-image{flex:1 1 320px;}
+.hero-image img{border-radius:var(--radius);border:4px solid rgba(255,255,255,.15);}
+
+/* ===================== Stats strip ===================== */
+.stats-strip{
+  background:var(--card);border-bottom:1px solid var(--border);
+}
+.stats-grid{
+  max-width:var(--maxw);margin:0 auto;padding:34px 20px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;
+}
+.stat-num{font-size:1.9rem;font-weight:800;color:var(--blue);}
+.stat-label{font-size:.82rem;color:var(--muted);margin-top:4px;}
+
+/* ===================== Cards / grids ===================== */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;transition:.2s;
+}
+.card:hover,.card:focus-within{box-shadow:0 10px 24px rgba(13,27,62,.08);transform:translateY(-2px);}
+.card-link{color:var(--blue);font-weight:700;font-size:.88rem;margin-top:10px;display:inline-block;}
+.card-link:hover,.card-link:focus{text-decoration:underline;}
+
+@media (max-width:900px){
+  .grid-3,.grid-4{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:640px){
+  .grid-2,.grid-3,.grid-4,.stats-grid{grid-template-columns:1fr;}
+  .hero-inner{text-align:center;justify-content:center;}
+  .hero-actions{justify-content:center;}
+}
+
+/* ===================== Section band (alt bg) ===================== */
+.band{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.band-navy{background:var(--navy);color:#fff;}
+.band-navy h2{color:#fff;}
+.band-navy p{color:#c3cce6;}
+
+/* ===================== Footer ===================== */
+.site-footer{background:var(--navy-deep);color:#a8b4d6;margin-top:0;}
+.footer-inner{
+  max-width:var(--maxw);margin:0 auto;padding:44px 20px 24px;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;
+}
+.footer-inner h4{color:#fff;font-size:.92rem;margin-bottom:14px;}
+.footer-inner li{margin-bottom:8px;font-size:.86rem;}
+.footer-inner a:hover,.footer-inner a:focus{color:var(--gold);}
+.footer-bottom{
+  text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.08);
+  font-size:.78rem;color:#7c88ab;
+}
+@media (max-width:760px){
+  .footer-inner{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:480px){
+  .footer-inner{grid-template-columns:1fr;}
+}
+
+/* ===================== Forms ===================== */
+.form-field{margin-bottom:16px;}
+.form-field label{display:block;font-size:.85rem;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.form-field input,.form-field select,.form-field textarea{
+  width:100%;padding:11px 13px;border-radius:6px;
+  background:#fff;border:1px solid var(--border);color:var(--text);
+  font-family:inherit;font-size:.92rem;
+}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+  outline:2px solid var(--blue-light);border-color:var(--blue-light);
+}
+
+/* ===================== Accessibility utility ===================== */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+
+/* ===================== Focus visibility (a11y) ===================== */
+a:focus-visible,button:focus-visible,label:focus-visible{
+  outline:2px solid var(--gold);outline-offset:2px;
+}
