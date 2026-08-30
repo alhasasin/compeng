@@ -1,12 +1,11 @@
 # Project Report
-## Departmental Website Redesign — Department of Computer Engineering, Ahmadu Bello University
+## Departmental Website design — Department of Computer Engineering, Ahmadu Bello University
 
 ---
 
 ## 1. Project Overview
 
-This report documents the design and development of a redesigned official
-website for the Department of Computer Engineering, Faculty of Engineering,
+This report documents the design and development of website for the Department of Computer Engineering, Faculty of Engineering,
 Ahmadu Bello University (ABU), Zaria. The site was built as a static,
 multi-page HTML5/CSS3 website comprising eight core pages: Home, About the
 Department, Academic Programs, Staff Directory, Student Directory, News &
@@ -106,9 +105,6 @@ still requires input from the department before the site can go live.
 
 ## 7. Known Limitations
 
-- The contact form depends on a third-party service (Formspree); the
-  placeholder form ID must be replaced with the department's real
-  endpoint before submissions will work.
 - The embedded Google Map uses a general ABU Zaria query rather than a
   precise pinned department location, since exact building coordinates
   weren't available.
@@ -128,12 +124,3 @@ structure places all files at the repository root (or under a
 branch/folder. A custom domain can be attached later via a `CNAME`
 file if the department wants a branded URL instead of the default
 `github.io` subdomain.
-
-## 9. Next Steps Before Going Live
-
-1. Supply real staff photos, emails, and phone numbers.
-2. Confirm exact laboratory/facility names and descriptions with the department.
-3. Obtain current CESA executive and class representative details.
-4. Replace the Formspree placeholder ID with a live form endpoint.
-5. Confirm current admission cut-off marks and key dates for the active academic session, since these change yearly.
-6. Add the department's official logo image in place of the placeholder brand mark.
