@@ -1,214 +1,1216 @@
+```css
 /* =========================================================
    assets/css/style.css
-   Department of Computer Engineering, Ahmadu Bello University
-   Pure CSS3 — Flexbox + Grid, mobile-first responsive design
+   Department of Computer Engineering
+   Ahmadu Bello University, Zaria
+
+   Responsive CSS
+   Flexbox + CSS Grid
+   Mobile Navigation — CSS only
    ========================================================= */
 
-:root{
-  --navy:#0d1b3e;
-  --navy-deep:#081228;
-  --blue:#1e4fd8;
-  --blue-light:#4f7fff;
-  --gold:#d4a017;
-  --bg:#f5f7fb;
-  --card:#ffffff;
-  --text:#1c2536;
-  --muted:#5c6a85;
-  --border:#e1e6f0;
-  --radius:10px;
-  --maxw:1160px;
+
+/* =========================================================
+   1. ROOT VARIABLES
+   ========================================================= */
+
+:root {
+    --navy: #0d1b3e;
+    --navy-deep: #081228;
+
+    --blue: #1e4fd8;
+    --blue-light: #4f7fff;
+
+    --gold: #d4a017;
+
+    --bg: #f5f7fb;
+    --card: #ffffff;
+
+    --text: #1c2536;
+    --muted: #5c6a85;
+
+    --border: #e1e6f0;
+
+    --radius: 10px;
+    --maxw: 1160px;
+
+    --shadow-sm: 0 4px 12px rgba(13, 27, 62, 0.06);
+    --shadow-md: 0 10px 24px rgba(13, 27, 62, 0.10);
+
+    --transition: 0.25s ease;
 }
 
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{
-  font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.65;
-}
-a{color:inherit;text-decoration:none;}
-img{max-width:100%;display:block;}
-ul{list-style:none;}
-table{border-collapse:collapse;width:100%;}
 
-/* ===================== Top bar ===================== */
-.top-bar{
-  background:var(--navy-deep);color:#cdd6ee;
-  font-size:.82rem;
-}
-.top-bar-inner{
-  max-width:var(--maxw);margin:0 auto;padding:6px 20px;
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;
-}
-.top-bar a{color:#cdd6ee;}
-.top-bar a:hover{color:var(--gold);}
+/* =========================================================
+   2. RESET / BASE
+   ========================================================= */
 
-/* ===================== Header / Nav ===================== */
-.site-header{
-  background:var(--navy);
-  position:sticky;top:0;z-index:100;
-  border-bottom:3px solid var(--gold);
-}
-.header-inner{
-  max-width:var(--maxw);margin:0 auto;padding:14px 20px;
-  display:flex;align-items:center;justify-content:space-between;
-  position:relative;
-}
-.brand{display:flex;align-items:center;gap:12px;color:#fff;}
-.brand-mark{
-  width:44px;height:44px;border-radius:50%;
-  background:var(--gold);color:var(--navy-deep);
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;font-size:.95rem;flex-shrink:0;
-  object-fit:cover;
-}
-.brand-text h1{font-size:1rem;font-weight:700;line-height:1.2;}
-.brand-text p{font-size:.75rem;color:#a8b4d6;}
-
-.nav-toggle-input{display:none;}
-.hamburger{
-  display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;
-}
-.hamburger span{width:24px;height:2px;background:#fff;border-radius:2px;}
-
-.site-nav ul{display:flex;gap:2px;flex-wrap:wrap;}
-.site-nav a{
-  display:block;padding:10px 13px;border-radius:6px;
-  font-size:.88rem;color:#dbe2f5;font-weight:600;
-  transition:.2s;
-}
-.site-nav a:hover,.site-nav a:focus,
-.site-nav a[aria-current="page"]{
-  color:var(--navy-deep);background:var(--gold);outline:none;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-@media (max-width:960px){
-  .hamburger{display:flex;}
-  .site-nav{
-    display:block;position:absolute;top:100%;left:0;right:0;
-    background:var(--navy);border-top:1px solid rgba(255,255,255,.1);
-    max-height:0;overflow:hidden;transition:max-height .3s ease;
-  }
-  .site-nav ul{flex-direction:column;padding:6px;}
-  .nav-toggle-input:checked ~ .header-inner .site-nav{max-height:600px;}
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-/* ===================== Layout helpers ===================== */
-main{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
-section{padding:56px 0;}
-.eyebrow{
-  color:var(--blue);font-size:.78rem;letter-spacing:2px;
-  text-transform:uppercase;font-weight:700;margin-bottom:10px;
-}
-h1{font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:800;line-height:1.2;color:#fff;}
-h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;margin-bottom:20px;color:var(--navy);}
-h3{font-size:1.05rem;font-weight:700;margin-bottom:6px;color:var(--navy);}
-p{color:var(--muted);}
-.lede{font-size:1.02rem;margin-top:14px;color:#dbe2f5;}
+body {
+    font-family:
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
 
-/* ===================== Buttons ===================== */
-.btn{
-  display:inline-block;padding:11px 24px;border-radius:6px;
-  font-weight:700;font-size:.9rem;transition:.2s;border:2px solid transparent;
-}
-.btn-primary{background:var(--gold);color:var(--navy-deep);}
-.btn-primary:hover,.btn-primary:focus{background:#c29112;}
-.btn-outline{border-color:#fff;color:#fff;}
-.btn-outline:hover,.btn-outline:focus{background:#fff;color:var(--navy);}
-.btn-outline-navy{border-color:var(--navy);color:var(--navy);}
-.btn-outline-navy:hover,.btn-outline-navy:focus{background:var(--navy);color:#fff;}
+    background: var(--bg);
+    color: var(--text);
 
-/* ===================== Hero (Home) ===================== */
-.hero{
-  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
-  padding:70px 0;
-}
-.hero-inner{max-width:var(--maxw);margin:0 auto;padding:0 20px;
-  display:flex;flex-wrap:wrap;gap:40px;align-items:center;}
-.hero-text{flex:1 1 460px;}
-.hero-actions{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;}
-.hero-image{flex:1 1 320px;}
-.hero-image img{border-radius:var(--radius);border:4px solid rgba(255,255,255,.15);}
+    line-height: 1.65;
 
-/* ===================== Stats strip ===================== */
-.stats-strip{
-  background:var(--card);border-bottom:1px solid var(--border);
-}
-.stats-grid{
-  max-width:var(--maxw);margin:0 auto;padding:34px 20px;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;
-}
-.stat-num{font-size:1.9rem;font-weight:800;color:var(--blue);}
-.stat-label{font-size:.82rem;color:var(--muted);margin-top:4px;}
+    min-width: 320px;
 
-/* ===================== Cards / grids ===================== */
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
-
-.card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--radius);padding:24px;transition:.2s;
-}
-.card:hover,.card:focus-within{box-shadow:0 10px 24px rgba(13,27,62,.08);transform:translateY(-2px);}
-.card-link{color:var(--blue);font-weight:700;font-size:.88rem;margin-top:10px;display:inline-block;}
-.card-link:hover,.card-link:focus{text-decoration:underline;}
-
-@media (max-width:900px){
-  .grid-3,.grid-4{grid-template-columns:repeat(2,1fr);}
-}
-@media (max-width:640px){
-  .grid-2,.grid-3,.grid-4,.stats-grid{grid-template-columns:1fr;}
-  .hero-inner{text-align:center;justify-content:center;}
-  .hero-actions{justify-content:center;}
+    overflow-x: hidden;
 }
 
-/* ===================== Section band (alt bg) ===================== */
-.band{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.band-navy{background:var(--navy);color:#fff;}
-.band-navy h2{color:#fff;}
-.band-navy p{color:#c3cce6;}
-
-/* ===================== Footer ===================== */
-.site-footer{background:var(--navy-deep);color:#a8b4d6;margin-top:0;}
-.footer-inner{
-  max-width:var(--maxw);margin:0 auto;padding:44px 20px 24px;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;
-}
-.footer-inner h4{color:#fff;font-size:.92rem;margin-bottom:14px;}
-.footer-inner li{margin-bottom:8px;font-size:.86rem;}
-.footer-inner a:hover,.footer-inner a:focus{color:var(--gold);}
-.footer-bottom{
-  text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.08);
-  font-size:.78rem;color:#7c88ab;
-}
-@media (max-width:760px){
-  .footer-inner{grid-template-columns:1fr 1fr;}
-}
-@media (max-width:480px){
-  .footer-inner{grid-template-columns:1fr;}
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-/* ===================== Forms ===================== */
-.form-field{margin-bottom:16px;}
-.form-field label{display:block;font-size:.85rem;font-weight:600;color:var(--navy);margin-bottom:6px;}
-.form-field input,.form-field select,.form-field textarea{
-  width:100%;padding:11px 13px;border-radius:6px;
-  background:#fff;border:1px solid var(--border);color:var(--text);
-  font-family:inherit;font-size:.92rem;
-}
-.form-field input:focus,.form-field select:focus,.form-field textarea:focus{
-  outline:2px solid var(--blue-light);border-color:var(--blue-light);
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* ===================== Accessibility utility ===================== */
-.sr-only{
-  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+ul,
+ol {
+    list-style: none;
 }
 
-/* ===================== Focus visibility (a11y) ===================== */
-a:focus-visible,button:focus-visible,label:focus-visible{
-  outline:2px solid var(--gold);outline-offset:2px;
+button,
+input,
+select,
+textarea {
+    font: inherit;
 }
+
+button {
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+::selection {
+    background: var(--gold);
+    color: var(--navy-deep);
+}
+
+
+/* =========================================================
+   3. TOP BAR
+   ========================================================= */
+
+.top-bar {
+    background: var(--navy-deep);
+    color: #cdd6ee;
+    font-size: 0.82rem;
+}
+
+.top-bar-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+
+    padding: 7px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+    gap: 6px 15px;
+}
+
+.top-bar a {
+    color: #cdd6ee;
+    transition: color var(--transition);
+}
+
+.top-bar a:hover,
+.top-bar a:focus {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   4. HEADER
+   ========================================================= */
+
+.site-header {
+    background: var(--navy);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    border-bottom: 3px solid var(--gold);
+}
+
+.header-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+
+    padding: 12px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+
+    min-height: 70px;
+}
+
+
+/* =========================================================
+   5. BRAND
+   ========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #fff;
+
+    min-width: 0;
+}
+
+.brand-mark {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+    color: var(--navy-deep);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 800;
+    font-size: 0.95rem;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+}
+
+.brand-text {
+    min-width: 0;
+}
+
+.brand-text h1 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: #fff;
+
+    margin: 0;
+}
+
+.brand-text p {
+    font-size: 0.75rem;
+    color: #a8b4d6;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   6. MOBILE NAVIGATION TOGGLE
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   The checkbox is placed before .site-header in the HTML.
+
+   Therefore the correct selector is:
+
+   .nav-toggle-input:checked ~ .site-header
+
+   NOT:
+
+   .nav-toggle-input:checked ~ .header-inner
+*/
+
+.nav-toggle-input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.hamburger {
+    display: none;
+
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 5px;
+
+    width: 46px;
+    height: 46px;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    position: relative;
+    z-index: 1003;
+
+    transition: background var(--transition);
+}
+
+.hamburger:hover,
+.hamburger:focus {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.hamburger span {
+    display: block;
+
+    width: 25px;
+    height: 3px;
+
+    background: #fff;
+
+    border-radius: 3px;
+
+    transform-origin: center;
+
+    transition:
+        transform var(--transition),
+        opacity var(--transition);
+}
+
+
+/* =========================================================
+   7. DESKTOP NAVIGATION
+   ========================================================= */
+
+.site-nav {
+    position: relative;
+    z-index: 1002;
+}
+
+.site-nav ul {
+    display: flex;
+
+    align-items: center;
+
+    gap: 2px;
+
+    flex-wrap: wrap;
+}
+
+.site-nav a {
+    display: block;
+
+    padding: 10px 13px;
+
+    border-radius: 6px;
+
+    font-size: 0.88rem;
+
+    color: #dbe2f5;
+
+    font-weight: 600;
+
+    transition:
+        background var(--transition),
+        color var(--transition);
+}
+
+.site-nav a:hover,
+.site-nav a:focus,
+.site-nav a[aria-current="page"] {
+    color: var(--navy-deep);
+    background: var(--gold);
+
+    outline: none;
+}
+
+
+/* =========================================================
+   8. MOBILE NAVIGATION
+   ========================================================= */
+
+@media (max-width: 960px) {
+
+    .header-inner {
+        padding: 10px 16px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .site-nav {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+
+        background: var(--navy);
+
+        border-top: 1px solid rgba(255, 255, 255, 0.10);
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        opacity: 0;
+        visibility: hidden;
+
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+        transition:
+            max-height 0.35s ease,
+            opacity 0.25s ease,
+            visibility 0.35s ease;
+    }
+
+    .site-nav ul {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 2px;
+
+        padding: 8px 12px 14px;
+    }
+
+    .site-nav li {
+        width: 100%;
+    }
+
+    .site-nav a {
+        width: 100%;
+
+        padding: 13px 15px;
+
+        font-size: 0.95rem;
+
+        border-radius: 6px;
+    }
+
+
+    /*
+       FIXED MOBILE TOGGLE SELECTOR
+
+       Checkbox -> .top-bar -> .site-header
+
+       Since .site-header is a later sibling,
+       ~ can reach it.
+    */
+
+    .nav-toggle-input:checked ~ .site-header .site-nav {
+        max-height: 700px;
+
+        opacity: 1;
+
+        visibility: visible;
+    }
+
+
+    /* Hamburger -> X */
+
+    .nav-toggle-input:checked ~ .site-header .hamburger span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle-input:checked ~ .site-header .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle-input:checked ~ .site-header .hamburger span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+
+/* =========================================================
+   9. LAYOUT HELPERS
+   ========================================================= */
+
+main {
+    max-width: var(--maxw);
+
+    margin: 0 auto;
+
+    padding: 0 20px;
+
+    width: 100%;
+}
+
+section {
+    padding: 56px 0;
+}
+
+.eyebrow {
+    color: var(--blue);
+
+    font-size: 0.78rem;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    color: #fff;
+}
+
+h2 {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+
+    font-weight: 800;
+
+    line-height: 1.3;
+
+    margin-bottom: 20px;
+
+    color: var(--navy);
+}
+
+h3 {
+    font-size: 1.05rem;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    margin-bottom: 6px;
+
+    color: var(--navy);
+}
+
+p {
+    color: var(--muted);
+}
+
+.lede {
+    font-size: 1.02rem;
+
+    margin-top: 14px;
+
+    color: #dbe2f5;
+}
+
+
+/* =========================================================
+   10. BUTTONS
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 24px;
+
+    min-height: 44px;
+
+    border-radius: 6px;
+
+    font-weight: 700;
+
+    font-size: 0.9rem;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: var(--gold);
+
+    color: var(--navy-deep);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: #c29112;
+}
+
+.btn-outline {
+    border-color: #fff;
+
+    color: #fff;
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+    background: #fff;
+
+    color: var(--navy);
+}
+
+.btn-outline-navy {
+    border-color: var(--navy);
+
+    color: var(--navy);
+}
+
+.btn-outline-navy:hover,
+.btn-outline-navy:focus {
+    background: var(--navy);
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   11. HERO
+   ========================================================= */
+
+.hero {
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy) 0%,
+            var(--navy-deep) 100%
+        );
+
+    padding: 70px 0;
+}
+
+.hero-inner {
+    max-width: var(--maxw);
+
+    margin: 0 auto;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 40px;
+
+    align-items: center;
+}
+
+.hero-text {
+    flex: 1 1 460px;
+
+    min-width: 0;
+}
+
+.hero-actions {
+    margin-top: 26px;
+
+    display: flex;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+.hero-image {
+    flex: 1 1 320px;
+
+    min-width: 0;
+}
+
+.hero-image img {
+    width: 100%;
+
+    border-radius: var(--radius);
+
+    border: 4px solid rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================================
+   12. STATS
+   ========================================================= */
+
+.stats-strip {
+    background: var(--card);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.stats-grid {
+    max-width: var(--maxw);
+
+    margin: 0 auto;
+
+    padding: 34px 20px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    text-align: center;
+}
+
+.stat-num {
+    font-size: 1.9rem;
+
+    font-weight: 800;
+
+    color: var(--blue);
+}
+
+.stat-label {
+    font-size: 0.82rem;
+
+    color: var(--muted);
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   13. GRIDS
+   ========================================================= */
+
+.grid-2 {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+.grid-3 {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+.grid-4 {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   14. CARDS
+   ========================================================= */
+
+.card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 24px;
+
+    transition:
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+.card:hover,
+.card:focus-within {
+    box-shadow: var(--shadow-md);
+
+    transform: translateY(-2px);
+}
+
+.card-link {
+    color: var(--blue);
+
+    font-weight: 700;
+
+    font-size: 0.88rem;
+
+    margin-top: 10px;
+
+    display: inline-block;
+}
+
+.card-link:hover,
+.card-link:focus {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   15. RESPONSIVE GRIDS
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    section {
+        padding: 42px 0;
+    }
+}
+
+
+/* =========================================================
+   16. SECTION BANDS
+   ========================================================= */
+
+.band {
+    background: var(--card);
+
+    border-top: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.band-navy {
+    background: var(--navy);
+
+    color: #fff;
+}
+
+.band-navy h2 {
+    color: #fff;
+}
+
+.band-navy p {
+    color: #c3cce6;
+}
+
+
+/* =========================================================
+   17. TABLES
+   ========================================================= */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background: var(--card);
+}
+
+.table-wrapper table {
+    min-width: 600px;
+}
+
+th,
+td {
+    padding: 12px 14px;
+
+    border-bottom: 1px solid var(--border);
+
+    text-align: left;
+
+    vertical-align: top;
+}
+
+th {
+    background: var(--navy);
+
+    color: #fff;
+
+    font-size: 0.88rem;
+}
+
+td {
+    color: var(--muted);
+
+    font-size: 0.9rem;
+}
+
+tr:last-child td {
+    border-bottom: 0;
+}
+
+
+/* =========================================================
+   18. FORMS
+   ========================================================= */
+
+.form-field {
+    margin-bottom: 16px;
+}
+
+.form-field label {
+    display: block;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    color: var(--navy);
+
+    margin-bottom: 6px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border-radius: 6px;
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 0.92rem;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.form-field textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: none;
+
+    border-color: var(--blue-light);
+
+    box-shadow: 0 0 0 3px rgba(79, 127, 255, 0.15);
+}
+
+
+/* =========================================================
+   19. FOOTER
+   ========================================================= */
+
+.site-footer {
+    background: var(--navy-deep);
+
+    color: #a8b4d6;
+
+    margin-top: 0;
+}
+
+.footer-inner {
+    max-width: var(--maxw);
+
+    margin: 0 auto;
+
+    padding: 44px 20px 24px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 2fr)
+        repeat(3, minmax(0, 1fr));
+
+    gap: 30px;
+}
+
+.footer-inner h4 {
+    color: #fff;
+
+    font-size: 0.92rem;
+
+    margin-bottom: 14px;
+}
+
+.footer-inner li {
+    margin-bottom: 8px;
+
+    font-size: 0.86rem;
+}
+
+.footer-inner a {
+    transition: color var(--transition);
+}
+
+.footer-inner a:hover,
+.footer-inner a:focus {
+    color: var(--gold);
+}
+
+.footer-bottom {
+    text-align: center;
+
+    padding: 16px 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 0.78rem;
+
+    color: #7c88ab;
+}
+
+
+/* =========================================================
+   20. FOOTER RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .footer-inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+
+/* =========================================================
+   21. SMALL MOBILE DEVICES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .top-bar-inner {
+        padding-left: 14px;
+        padding-right: 14px;
+
+        justify-content: center;
+
+        text-align: center;
+    }
+
+    .header-inner {
+        padding-left: 12px;
+        padding-right: 12px;
+
+        min-height: 64px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand-mark {
+        width: 38px;
+        height: 38px;
+
+        font-size: 0.8rem;
+    }
+
+    .brand-text h1 {
+        font-size: 0.86rem;
+    }
+
+    .brand-text p {
+        font-size: 0.67rem;
+    }
+
+    .hamburger {
+        width: 44px;
+        height: 44px;
+    }
+
+    .hero {
+        padding: 48px 0;
+    }
+
+    .hero-inner {
+        padding-left: 16px;
+        padding-right: 16px;
+
+        gap: 28px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.85rem;
+    }
+
+    h2 {
+        font-size: 1.45rem;
+    }
+}
+
+
+/* =========================================================
+   22. VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .brand-text p {
+        display: none;
+    }
+
+    .brand-text h1 {
+        font-size: 0.82rem;
+    }
+
+    .brand-mark {
+        width: 36px;
+        height: 36px;
+    }
+
+    .hero-inner {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}
+
+
+/* =========================================================
+   23. ACCESSIBILITY
+   ========================================================= */
+
+.sr-only {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+a:focus-visible,
+button:focus-visible,
+label:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--gold);
+
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   24. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   END OF STYLE.CSS
+   ========================================================= */
